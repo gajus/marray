@@ -18,8 +18,6 @@
 	    "satooshi/php-coveralls": "dev-master"
 	},
 	"autoload": {
-		"psr-4": {
-			"Gajus\\Marray\\": "src/"
-		}
+		"files": ["src/marray.php"]
 	}
 }
