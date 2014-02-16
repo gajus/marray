@@ -7,6 +7,11 @@ function intersect_inverse (array $input, array $whitelist) {
         throw new Exception\InvalidArgumentException('Input is not an associative array.');
     }
 
+    if (!is_int(key($whitelist))) {
+        // Naive, though misuse cases are just as naive.
+        throw new Exception\InvalidArgumentException('Whitelist is not a list.');
+    }
+
     return array_intersect_key($input, array_flip($whitelist));
 }
 

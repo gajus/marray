@@ -16,7 +16,15 @@ class IntersectInverseTest extends PHPUnit_Framework_TestCase {
      * @expectedException Gajus\Marray\Exception\InvalidArgumentException
      * @expectedExceptionMessage Input is not an associative array.
      */
-    public function testIntersectionInvalidSource () {
+    public function testInvalidSource () {
         \Gajus\Marray\intersect_inverse(['foo', 'bar', 'baz'], ['foo', 'baz']);
+    }
+
+    /**
+     * @expectedException Gajus\Marray\Exception\InvalidArgumentException
+     * @expectedExceptionMessage Whitelist is not a list.
+     */
+    public function testInvalidWhitelist () {
+        \Gajus\Marray\intersect_inverse(['foo' => 'Foo', 'bar' => 'Bar', 'baz' => 'Baz'], ['foo' => 'Foo', 'baz' => 'Baz']);
     }
 }

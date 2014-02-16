@@ -1,4 +1,4 @@
 <?php
-namespace Gajus\Marray;
+namespace Gajus\Marray\Exception;
 
 class MarrayException extends \Exception {}
