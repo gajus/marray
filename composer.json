@@ -1,0 +1,25 @@
+{
+	"name": "gajus/skip",
+	"description": "Navigation and messaging utility.",
+	"keywords": ["url", "flash", "session", "message", "redirect"],
+	"homepage": "https://github.com/gajus/skip",
+	"type": "library",
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Gajus Kuizinas",
+			"email": "gk@anuary.com"
+		}
+	],
+	"require": {
+		"php": ">=5.5"
+	},
+	"require-dev": {
+	    "satooshi/php-coveralls": "dev-master"
+	},
+	"autoload": {
+		"psr-4": {
+			"Gajus\\Skip\\": "src/"
+		}
+	}
+}
