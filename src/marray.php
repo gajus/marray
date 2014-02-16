@@ -37,7 +37,7 @@ function intersect_recursive (array $arr1, array $arr2) {
         
         array_splice($arguments, 0, 2, [$return]);
     
-        $return = call_user_func_array('Gajus\Marray\arrayIntersectRecursive', $arguments);
+        $return = call_user_func_array('Gajus\Marray\intersect_recursive', $arguments);
     }
     
     return $return;
@@ -49,7 +49,7 @@ function diff_key_recursive (array $arr1, array $arr2) {
     
     foreach ($intersect as $k => $v) {
         if (is_array($arr1[$k]) && is_array($arr2[$k])) {
-            $d = array_diff_key_recursive($arr1[$k], $arr2[$k]);
+            $d = diff_key_recursive($arr1[$k], $arr2[$k]);
             
             if ($d) {
                 $diff[$k] = $d;
