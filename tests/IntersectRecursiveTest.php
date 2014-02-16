@@ -19,4 +19,12 @@ class IntersectRecursiveTest extends PHPUnit_Framework_TestCase {
 
         $this->assertSame($source, $intersection);
     }
+
+    public function testSomeIntersectMultipleSource () {
+        $input = ['foo' => 'Foo', 'baz' => ['baz' => 'Baz']];
+
+        $intersection = \Gajus\Marray\intersect_recursive($input, ['foo' => 'Foo', 'bar' => -1, 'baz' => ['baz' => 'Baz']], ['foo' => 'Foo', 'bar' => 1, 'baz' => ['baz' => 'Baz']]);
+
+        $this->assertSame($input, $intersection);
+    }
 }

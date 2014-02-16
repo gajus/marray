@@ -1,18 +1,31 @@
 <?php
 namespace Gajus\Marray;
 
-function intersect_inverse (array $input, array $whitelist) {
+/**
+ * Strip-down $input to values where $input key is found among $template values.
+ * 
+ * @throws Gajus\Marray\Exception\InvalidArgumentException If $input does not have all the keys defined in $template.
+ * @param array $input
+ * @param array $template
+ */
+function template (array $input, array $template) {
     if (is_int(key($input))) {
         // Naive, though misuse cases are just as naive.
         throw new Exception\InvalidArgumentException('Input is not an associative array.');
     }
 
-    if (!is_int(key($whitelist))) {
+    if (!is_int(key($template))) {
         // Naive, though misuse cases are just as naive.
-        throw new Exception\InvalidArgumentException('Whitelist is not a list.');
+        throw new Exception\InvalidArgumentException('Template is not a list.');
     }
 
-    return array_intersect_key($input, array_flip($whitelist));
+    $template = array_flip($template);
+
+    if ($diff = array_diff_key($template, $input)) {
+        throw new Exception\InvalidArgumentException('Template does not cover input.');
+    }
+
+    return array_intersect_key($input, $template);
 }
 
 function intersect_recursive (array $arr1, array $arr2) {
