@@ -1,8 +1,6 @@
 <?php
 class IntersectRecursiveTest extends PHPUnit_Framework_TestCase {
     public function testNoIntersection () {
-
-
         $this->assertCount(0, \Gajus\Marray\intersect_recursive(['foo' => 'Foo', 'bar' => ['Bar']], ['foo', 'bar' => 'Bar']));
     }
 

@@ -22,7 +22,7 @@ function intersect_recursive (array $arr1, array $arr2) {
     
     foreach ($common_keys as $key) {
         if (is_array($arr1[$key]) && is_array($arr2[$key])) {
-            $intersection = array_intersect_recursive ($arr1[$key], $arr2[$key]);
+            $intersection = intersect_recursive ($arr1[$key], $arr2[$key]);
             
             if ($intersection) {
                 $return[$key] = $intersection;
