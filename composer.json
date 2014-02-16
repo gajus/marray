@@ -1,8 +1,8 @@
 {
-	"name": "gajus/skip",
-	"description": "Navigation and messaging utility.",
-	"keywords": ["url", "flash", "session", "message", "redirect"],
-	"homepage": "https://github.com/gajus/skip",
+	"name": "gajus/marray",
+	"description": "More array functions.",
+	"keywords": ["array", "toolkit"],
+	"homepage": "https://github.com/gajus/marray",
 	"type": "library",
 	"license": "BSD-3-Clause",
 	"authors": [
@@ -19,7 +19,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Gajus\\Skip\\": "src/"
+			"Gajus\\Marray\\": "src/"
 		}
 	}
 }
