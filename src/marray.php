@@ -91,3 +91,14 @@ function diff_key_recursive (array $arr1, array $arr2) {
     
     return $diff;
 }
+
+/**
+ * http://php.net/array_unique implementation with user callback.
+ * 
+ * @param array The input array.
+ * @param Closure Function must return the value used for uniqueness comparison.
+ * @param int $sort_flags
+ */
+function uunique ($array, Closure $retrieve, $sort_flags = \SORT_STRING) {
+    // @todo
+}
