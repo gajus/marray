@@ -1,7 +1,12 @@
 <?php
 namespace Gajus\Marray;
 
-function intersect_inverse (array $whitelist, array $input) {
+function intersect_inverse (array $input, array $whitelist) {
+    if (is_int(key($input))) {
+        // Naive, though misuse cases are just as naive.
+        throw new Exception\InvalidArgumentException('Input is not an associative array.');
+    }
+
     return array_intersect_key($input, array_flip($whitelist));
 }
 
