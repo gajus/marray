@@ -4,9 +4,12 @@ namespace Gajus\Marray;
 /**
  * Strip-down $input to values where $input key is found among $template values.
  * 
+ * @throws Gajus\Marray\Exception\InvalidArgumentException If input is not an associative array.
+ * @throws Gajus\Marray\Exception\InvalidArgumentException If template is not a list.
  * @throws Gajus\Marray\Exception\InvalidArgumentException If $input does not have all the keys defined in $template.
  * @param array $input
  * @param array $template
+ * @return array
  */
 function template (array $input, array $template) {
     if (is_int(key($input))) {
@@ -28,6 +31,14 @@ function template (array $input, array $template) {
     return array_intersect_key($input, $template);
 }
 
+/**
+ * http://php.net/array_intersect recursive implementation.
+ * 
+ * @param array $arr1 The array with master values to check.
+ * @param array $arr2 An array to compare values against.
+ * @param array ... A variable list of arrays to compare.
+ * @return array
+ */
 function intersect_recursive (array $arr1, array $arr2) {
     $return = [];
     
@@ -56,6 +67,14 @@ function intersect_recursive (array $arr1, array $arr2) {
     return $return;
 }
 
+/**
+ * http://php.net/array_diff_key recursive implementation.
+ * 
+ * @todo Support variadic input.
+ * @param array $arr1 The array with master keys to check.
+ * @param array $arr2 An array to compare keys against.
+ * @return array
+ */
 function diff_key_recursive (array $arr1, array $arr2) {
     $diff = array_diff_key($arr1, $arr2);
     $intersect = array_intersect_key($arr1, $arr2);
