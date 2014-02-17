@@ -37,4 +37,14 @@ array \Gajus\Marray\intersect_recursive ( array $arr1 , array $arr2 [, array $..
  * @return array
  */
 array \Gajus\Marray\diff_key_recursive ( array $arr1 , array $arr )
+
+
+/**
+ * http://php.net/array_unique implementation with user callback.
+ * 
+ * @param array The input array.
+ * @param Closure $value_func Function must return the value used for comparison.
+ * @param int $sort_flags
+ */
+array \Gajus\Marray\uunique ($array, \Closure $value_func, $sort_flags = \SORT_STRING)
 ```
