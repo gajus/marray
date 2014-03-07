@@ -107,6 +107,8 @@ function uunique ($array, callable $value_func, $sort_flags = \SORT_STRING) {
 }
 
 /**
+ * http://uk1.php.net/array_walk_recursive implementation that is used to remove nodes from the array.
+ *
  * @param array The input array.
  * @param callable $callback Function must return boolean value indicating whether to remove the node.
  * @return array

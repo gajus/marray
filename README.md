@@ -43,8 +43,16 @@ array \Gajus\Marray\diff_key_recursive ( array $arr1 , array $arr )
  * http://php.net/array_unique implementation with user callback.
  * 
  * @param array The input array.
- * @param Closure $value_func Function must return the value used for comparison.
+ * @param callable $value_func Function must return the value used for comparison.
  * @param int $sort_flags
  */
-array \Gajus\Marray\uunique ($array, \Closure $value_func, $sort_flags = \SORT_STRING)
+array \Gajus\Marray\uunique ($array, callable $value_func, $sort_flags = \SORT_STRING)
+
+/**
+ * http://uk1.php.net/array_walk_recursive implementation that is used to remove nodes from the array.
+ *
+ * @param array The input array.
+ * @param callable $callback Function must return boolean value indicating whether to remove the node.
+ * @return array
+ */
 ```
