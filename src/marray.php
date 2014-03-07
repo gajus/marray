@@ -116,7 +116,7 @@ function uunique ($array, callable $value_func, $sort_flags = \SORT_STRING) {
 function walk_recursive_remove (array $array, callable $callback) {
     foreach ($array as $k => $v) {
         if (is_array($v)) {
-            $v = walk_recursive_remove($v, $callback);
+            $array[$k] = walk_recursive_remove($v, $callback);
         } else {
             if ($callback($v, $k)) {
                 unset($array[$k]);

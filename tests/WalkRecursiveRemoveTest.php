@@ -24,7 +24,7 @@ class WalkRecursiveRemoveTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testRemoveRecursive () {
-        $input = ['foo' => 1, 'bar' => 1, 'baz' => ['qux' => 2]];
+        $input = ['foo' => 1, 'bar' => 1, 'baz' => ['qux' => 2, 'quux' => 1]];
 
         $output = \Gajus\Marray\walk_recursive_remove($input, function ($v, $k) {
             return $v === 1;
