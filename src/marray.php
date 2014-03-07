@@ -96,11 +96,31 @@ function diff_key_recursive (array $arr1, array $arr2) {
  * http://php.net/array_unique implementation with user callback.
  * 
  * @param array The input array.
- * @param Closure $value_func Function must return the value used for comparison.
+ * @param callable $value_func Function must return the value used for comparison.
  * @param int $sort_flags
+ * @return array
  */
-function uunique ($array, \Closure $value_func, $sort_flags = \SORT_STRING) {
+function uunique ($array, callable $value_func, $sort_flags = \SORT_STRING) {
     $copy = array_unique(array_map($value_func, $array), $sort_flags);
 
     return array_intersect_key($array, $copy);
+}
+
+/**
+ * @param array The input array.
+ * @param callable $callback Function must return boolean value indicating whether to remove the node.
+ * @return array
+ */
+function walk_recursive_remove (array $array, callable $callback) {
+    foreach ($array as $k => $v) {
+        if (is_array($v)) {
+            $v = walk_recursive_remove($v, $callback);
+        } else {
+            if ($callback($v, $k)) {
+                unset($array[$k]);
+            }
+        }
+    }
+
+    return $array;
 }
