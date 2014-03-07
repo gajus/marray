@@ -38,7 +38,6 @@ array \Gajus\Marray\intersect_recursive ( array $arr1 , array $arr2 [, array $..
  */
 array \Gajus\Marray\diff_key_recursive ( array $arr1 , array $arr )
 
-
 /**
  * http://php.net/array_unique implementation with user callback.
  * 
@@ -55,4 +54,5 @@ array \Gajus\Marray\uunique ($array, callable $value_func, $sort_flags = \SORT_S
  * @param callable $callback Function must return boolean value indicating whether to remove the node.
  * @return array
  */
+function walk_recursive_remove (array $array, callable $callback)
 ```
